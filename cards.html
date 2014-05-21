@@ -1,0 +1,70 @@
+<!doctype html>
+<html manifest="manifest.appcache">
+<head>
+<meta charset="utf-8">
+<title>Tyrant Unleashed Card Browser</title>
+<link rel="stylesheet" href="css/cards.min.css">
+</head>
+<body>
+<div id="tu">
+    <div id="refine_card_list" class="uninitialized">
+        <div class="group frequent" data-group="name">
+            <div class="toggle"></div>
+            <div class="button reset">Reset</div>
+            <input type="text" class="filter" data-filter_item="name" placeholder="Card name" />
+        </div>
+        <ol class="group frequent" data-group="rarity"></ol>
+        <ol class="group frequent" data-group="faction"></ol>
+        <ul class="group frequent" data-group="type"></ul>
+        <ol class="group" data-group="fusion"></ol>
+        <ol class="group" data-group="delay"></ol>
+        <div class="group" data-group="attack">
+            <input type="number" class="filter" data-filter_item="min_attack" min="0" title="Attack equal or greater than" />
+            <span class="hyphen"></span>
+            <input type="number" class="filter" data-filter_item="max_attack" min="1" title="Attack equal or less than" />
+        </div>
+        <div class="group" data-group="health">
+            <input type="number" class="filter" data-filter_item="min_health" min="1" title="Health equal or greater than" />
+            <span class="hyphen"></span>
+            <input type="number" class="filter" data-filter_item="max_health" min="1" title="Health equal or less than" />
+        </div>
+        <ul class="group" data-group="skill"></ul>
+        <ul class="group" data-group="sort"></ul>
+    </div>
+    <ul id="card_list"></ul>
+    <div id="card_detail">
+        <div class="card_info">
+            <ol class="card_levels"></ol>
+        </div>
+    </div>
+</div>
+<script id="refine_card_list_check_filter_template" type="text/x-template">
+<li class="filter" data-filter_item="{item}" data-id="{id}" title="{title}"></li>
+</script>
+<script id="refine_card_list_sort_template" type="text/x-template">
+<li class="button sort" data-sort_item="{item}" title="Sort by {item}">{title}</li>
+</script>
+<script id="card_skill_template" type="text/x-template">
+<li class="card_skill" data-skill_id="{id}">{desc}</li>
+</script>
+<script id="card_template" type="text/x-template">
+<div class="card" title="{name}" data-id="{id}" data-rarity_id="{rarity_id}" data-faction_id="{faction_id}" data-fusion="{fusion}" data-type_id="{type_id}" data-level="{level}" data-max-level="{max_level}" data-art="{art}">
+    <div class="card_type"></div>
+    <div class="card_name">{name}</div>
+    <div class="card_art"></div>
+    <div class="card_delay">{delay}</div>
+    <div class="card_faction"></div>
+    <ul class="card_skills">{skills}</ul>
+    <div class="card_level"></div>
+    <div class="card_attack">{attack}</div>
+    <div class="card_health">{health}</div>
+</div>
+</script>
+<script id="card_list_item_template" type="text/x-template">
+<li class="thumb">{}</li>
+</script>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/fc.min.js"></script>
+<script src="js/cards.min.js"></script>
+</body>
+</html>
